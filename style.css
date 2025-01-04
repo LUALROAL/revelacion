@@ -9,7 +9,6 @@ body {
 
 header {
     background: linear-gradient(90deg, blue, purple);
-
     color: #fff;
     padding: 20px 0;
 }
@@ -42,10 +41,11 @@ input[type="text"] {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    /* background: linear-gradient(to right, #e1bee7, #e3f2fd, #e1bee7, #e3f2fd); */
 }
 
 button {
-    background: linear-gradient(90deg, blue, purple);
+    background: linear-gradient(90deg,  purple,blue);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -58,6 +58,71 @@ button:hover {
     background-color: #ff627e;
 }
 
+/* Estilos para los íconos */
+label i, button i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+#guestFields .person-info input[type="text"] {
+    background-color: #e3f2fd; /* Fondo azul claro para el nombre */
+}
+
+#guestFields .person-info input[type="number"] {
+    background-color: #f9fbe7; /* Fondo amarillo claro para la edad */
+}
+
+#guestFields .person-info input[type="number"]#numGuests {
+    background-color: #fbe9e7; /* Fondo rosa claro para la cantidad de personas */
+}
+
 .person-info {
     margin-bottom: 15px;
+}
+
+
+/* Estilo general para los campos de los invitados */
+.person-info {
+    margin-bottom: 20px;
+    padding: 30px;
+    background-color: #f1f1f1; /* Fondo gris claro para los campos */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.person-info label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilo para los campos de nombre y edad */
+.person-info input[type="text"],
+.person-info input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Estilo para los inputs de tipo texto */
+.person-info input[type="text"] {
+    background: linear-gradient(to right, #e3f2fd, #e1bee7);
+ /* Fondo azul claro para el nombre */
+}
+
+/* Estilo para los inputs de tipo número */
+.person-info input[type="number"] {
+     background: linear-gradient(to right,  #e1bee7, #e3f2fd);
+}
+
+/* Añadir un borde con color al pasar el mouse sobre los campos */
+.person-info input[type="text"]:focus,
+.person-info input[type="number"]:focus {
+    border-color: #007bff; /* Bordes azules cuando se enfocan */
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
 }

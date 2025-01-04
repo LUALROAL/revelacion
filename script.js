@@ -30,17 +30,22 @@ function updateFields() {
     }
 
     // Generar los campos para cada invitado
-    for (let i = 1; i <= numGuests; i++) {
-        const div = document.createElement("div");
-        div.classList.add("person-info");
-        div.innerHTML = `
-            <label for="name${i}">Nombre de la persona ${i}:</label>
-            <input type="text" id="name${i}" name="name${i}" placeholder="Nombre" required>
-            <label for="age${i}">Edad de la persona ${i}:</label>
-            <input type="number" id="age${i}" name="age${i}" placeholder="Edad" min="0" required>
-        `;
-        guestFields.appendChild(div);
-    }
+ // Generar los campos para cada invitado
+for (let i = 1; i <= numGuests; i++) {
+    const div = document.createElement("div");
+    div.classList.add("person-info");
+    div.innerHTML = `
+        <label for="name${i}">
+            <i class="fas fa-user"></i> Nombre de la persona ${i}:
+        </label>
+        <input type="text" id="name${i}" name="name${i}" placeholder="Nombre" required>
+        <label for="age${i}">
+            <i class="fas fa-calendar-alt"></i> Edad de la persona ${i}:
+        </label>
+        <input type="number" id="age${i}" name="age${i}" placeholder="Edad" min="0" required>
+    `;
+    guestFields.appendChild(div);
+}
 }
 
 
