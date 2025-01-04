@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
     <title>Fiesta de Revelación de Género</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>¡Bienvenido a la Fiesta de Revelación de Género Rodriguez Hernandez!</h1>
-    </header>
-    <main>
-        <form id="guestForm" method="post" action="" name="formulario-contato">
-            <label for="numGuests">¿Cuántas personas asistirán?</label>
-            <input 
-                type="number" 
-                id="numGuests" 
-                min="0" 
-                max="10" 
-                placeholder="Ingresa el número de personas" 
-                oninput="updateFields()" 
-                required
-            >
-            <div id="guestFields"></div>
-            <button type="submit" id="enviar">Enviar</button>
+        <h1>
+          ¡Bienvenido a la Fiesta de Revelación de Género Rodriguez Hernandez!
+        </h1>
+      </header>
+      <main>
+        <form
+          id="guestForm"
+          method="post"
+          action=""
+          name="formulario-contato"
+        >
+          <label for="numGuests">¿Cuántas personas asistirán?</label>
+          <input
+            type="number"
+            id="numGuests"
+            min="0"
+            max="10"
+            placeholder="Ingresa el número de personas"
+            oninput="updateFields()"
+            required
+          />
+          <div id="guestFields"></div>
+          <button type="submit" value="Submit" id="submit">Enviar</button>
         </form>
-    </main>
-</body>
+      </main>
+  </body>
 </html>

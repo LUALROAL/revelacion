@@ -1,33 +1,47 @@
-const script_de_google = 'https://script.google.com/macros/s/AKfycbwsRg1glTVXoS7qRXTwA4Vu0bh2YUjijwLSNDu1NmWaMOesMLdm7PGXqJQQR8zJQOve/exec';
-const formulario_contacto = document.forms['formulario-contato'];
+// URL del Google Apps Script (asegúrate de que está configurado para POST)
+const scriptURL = 'https://script.google.com/macros/s/AKfycbwNMUDDhUtArrvuXgVvfeplbcLTqBpRcZ4L_XsWiSDzzIPX6WUVUylhIGQKYjIvcfTZ/exec';
 
-formulario_contacto.addEventListener('submit', async function (e) {
-    e.preventDefault(); // Prevenir el envío por defecto del formulario
+// Espera que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.forms['formulario-contato'];
 
-    try {
-        const response = await fetch(script_de_google, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-            },
-            body: new FormData(formulario_contacto),
-        });
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        // Realizar solicitud POST
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => alert("¡Gracias! El formulario ha sido enviado"))
+        .then(() => { window.location.reload(); })
+        .catch(error => console.error('¡Error!', error.message));
+    });
 
-        if (response.ok) {
-            const data = await response.json();
-            alert('¡Datos enviados con éxito!');
-            formulario_contacto.reset();
-            document.getElementById("guestFields").innerHTML = "";
-        } else {
-            alert('Hubo un problema al enviar los datos. Inténtelo de nuevo.');
-            console.error('Respuesta del servidor no exitosa:', response);
-        }
-    } catch (error) {
-        console.error('Error al enviar los datos:', error);
-        alert('No se pudo enviar la información. Verifique su conexión o intente más tarde.');
-    }
+    // Escuchar el cambio en el número de invitados
+    document.getElementById("numGuests").addEventListener("input", updateFields);
 });
 
+function updateFields() {
+    const numGuests = parseInt(document.getElementById("numGuests").value);
+    const guestFields = document.getElementById("guestFields");
+
+    // Limpiar campos previos
+    guestFields.innerHTML = "";
+
+    if (isNaN(numGuests) || numGuests <= 0) {
+        return; // No generar campos si el número es inválido o menor o igual a 0
+    }
+
+    // Generar los campos para cada invitado
+    for (let i = 1; i <= numGuests; i++) {
+        const div = document.createElement("div");
+        div.classList.add("person-info");
+        div.innerHTML = `
+            <label for="name${i}">Nombre de la persona ${i}:</label>
+            <input type="text" id="name${i}" name="name${i}" placeholder="Nombre" required>
+            <label for="age${i}">Edad de la persona ${i}:</label>
+            <input type="number" id="age${i}" name="age${i}" placeholder="Edad" min="0" required>
+        `;
+        guestFields.appendChild(div);
+    }
+}
 
 
 
