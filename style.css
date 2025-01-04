@@ -17,6 +17,7 @@ body {
   header h1 {
     margin: 0;
     font-size: 24px;
+    text-shadow: 2px 2px 4px #111;
   }
   
   /* Estilos del formulario */
@@ -250,3 +251,8 @@ body {
     100% { width: 13ch; }
   }
   
+  @media (max-width: 494px) {
+    header h1 {
+      font-size: 18px; /* Tamaño más pequeño para pantallas menores a 494px */
+    }
+}
