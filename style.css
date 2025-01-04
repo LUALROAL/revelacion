@@ -8,7 +8,8 @@ body {
 }
 
 header {
-    background-color: #ffd1dc;
+    background: linear-gradient(90deg, blue, purple);
+
     color: #fff;
     padding: 20px 0;
 }
@@ -44,7 +45,7 @@ input[type="text"] {
 }
 
 button {
-    background-color: #ff85a1;
+    background: linear-gradient(90deg, blue, purple);
     color: white;
     padding: 10px 20px;
     border: none;
