@@ -55,3 +55,20 @@
             guestFields.appendChild(div);
         }
     }
+
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const checkbox = document.querySelector('input[type="checkbox"]');
+        const content = document.getElementById("content");
+  
+        // Escuchar cambios en el checkbox
+        checkbox.addEventListener("change", () => {
+          if (checkbox.checked) {
+            content.style.visibility = "visible";
+          } else {
+            content.style.visibility = "hidden";
+          }
+        });
+      });
+      

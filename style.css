@@ -19,7 +19,9 @@ body {
     font-size: 24px;
     text-shadow: 2px 2px 4px #111;
   }
-  
+  #content {
+    visibility: hidden; /* El contenido está oculto inicialmente */
+  }
   /* Estilos del formulario */
   form {
     margin: 20px auto;
@@ -253,6 +255,141 @@ body {
   
   @media (max-width: 494px) {
     header h1 {
-      font-size: 18px; /* Tamaño más pequeño para pantallas menores a 494px */
+      font-size: 16px; /* Tamaño más pequeño para pantallas menores a 494px */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 70%; /* Usar el 100% del ancho disponible */
+    max-width: 600px; /* Limitar el ancho máximo */
+    height: auto; /* Ajustar la altura proporcionalmente */
+    aspect-ratio: 3 / 1; /* Mantener la relación de aspecto */
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 100px;
+    background-image: linear-gradient(
+        #7b2cbf, /* Púrpura oscuro */
+        #9d4edd, /* Morado medio */
+        #c77dff, /* Lavanda brillante */
+        #6a4c93, /* Azul púrpura */
+        #4a4e69  /* Azul oscuro */
+      );
+      
+    transition: 0.4s;
+  }
+  
+  .crib {
+    position: absolute;
+    left: -5%;
+    bottom: 6%;
+    transition: 0.4s;
+    z-index: 100;
+    overflow: hidden;
+  }
+  
+  svg {
+    height: auto;
+    width: 35vw; /* Ajustar el ancho proporcional al viewport */
+    max-width: 210px; /* Limitar el ancho máximo */
+  }
+  
+  #Crib {
+    transform-origin: center;
+  }
+  
+  #Left,
+  #Right {
+    transform-origin: center;
+    transition: 0.5s ease-in-out;
+  }
+  
+  input:checked + .slider .crib {
+    transform: translateX(68%); /* Ajustado para pantallas pequeñas */
+  }
+  
+  input:checked + .slider .crib .right {
+    transform: rotate(90deg) translate(60px);
+  }
+  
+  input:checked + .slider .crib #Left {
+    transform: rotate(-90deg) translate(-70px) scale(0.8);
+  }
+  
+  input:checked + .slider .crib #Right {
+    transform: rotate(90deg) translate(70px) scale(0.8);
+  }
+  
+  #Grogu,
+  #Robe {
+    transform-origin: center;
+    transition: 0.8s ease-in-out;
+  }
+  
+  input:checked + .slider .crib #Robe {
+    transform: translatey(0px) scale(1);
+  }
+  
+  input:checked + .slider .crib #Grogu {
+    transform: translatey(10px) scale(1);
+    animation: head-tilt 3s ease-in-out;
+    animation-delay: 1s;
+  }
+  
+  @keyframes head-tilt {
+    0% {
+      transform: translatey(10px) scale(1);
+    }
+    25% {
+      transform: rotate(-3deg) translatey(0px);
+    }
+  
+    75% {
+      transform: rotate(3deg) translatey(0px);
+    }
+    100% {
+      transform: rotate(0deg) translatey(10px);
+    }
+  }
+  
+  /* Consultas de medios para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .switch {
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 3 / 1;
+    }
+  
+    .crib {
+      left: -8%;
+    }
+  
+    input:checked + .slider .crib {
+      transform: translateX(65%);
+    }
+  
+    svg {
+      width: 50vw;
+      max-width: 180px;
+    }
+  }
+  
