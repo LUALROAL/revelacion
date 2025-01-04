@@ -17,9 +17,11 @@ body {
   height: 100vh;
   max-height: 700px;
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 1rem; /* Espacio entre las cartas */
+  padding: 1rem;
 }
 
 #stats {
@@ -38,6 +40,9 @@ body {
   position: relative;
   transition: transform 0.5s;
   transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card.active {
@@ -58,7 +63,7 @@ body {
 
 .card .face {
   background: #05d1fe;
-  transform: rotateY( 180deg );
+  transform: rotateY(180deg);
   color: black;
   font-size: 6rem;
 }
@@ -66,4 +71,22 @@ body {
 .card .back {
   border: 3px solid #05d1fe;
   background: url(/revelacion/img/baby-2028055_640.png) center / contain no-repeat;
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 600px) {
+  .card {
+    width: 50px; /* Reducir tamaño de las cartas */
+    height: 90px; /* Reducir altura de las cartas */
+  }
+  #stats {
+    font-size: 2rem; /* Ajustar el tamaño del texto de los intentos */
+  }
+  #game {
+    max-height: 500px; /* Reducir el tamaño del área de juego */
+  }
+
+  .card .face{
+    font-size: 3rem; /* Ajustar el tamaño del número en las cartas */
+  }
 }
